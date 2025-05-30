@@ -1,0 +1,11 @@
+# Allow all user agents full access
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Allow: /
+
+# Sitemap declaration for better crawling
+Sitemap: https://darahat.bau.edu.bd/sitemap.xml
+
+
