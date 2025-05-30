@@ -19,6 +19,7 @@
             href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
             rel="stylesheet">
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- All css here -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -2530,5 +2531,39 @@
 
 
     </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("#contact-form");
 
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // prevent normal form submission
+
+            fetch("php/mail.php", {
+                method: "POST",
+                body: new FormData(form)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.text();
+            })
+            .then(text => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: text,
+                    icon: 'success'
+                });
+                form.reset(); // optional: clear the form
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'There was a problem sending the message.',
+                    icon: 'error'
+                });
+            });
+        });
+    });
+</script>
 </html>
