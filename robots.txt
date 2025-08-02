@@ -6,6 +6,6 @@ Disallow: /private/
 Allow: /
 
 # Sitemap declaration for better crawling
-Sitemap: https://darahat.bau.edu.bd/sitemap.xml
+Sitemap: https://darahat.dev/sitemap.xml
 
 
