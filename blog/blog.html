@@ -1,275 +1,498 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Blog - Didarul Alam Rahat</title>
+    <meta
+      name="description"
+      content="Recent articles by Didarul Alam Rahat, Freelance Full-Stack & Flutter Developer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/favicon.webp"
+      type="image/x-icon"
+    />
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Didarul Alam Rahat - Blog</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="shortcut icon" href="../images/logo/favicon.webp" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-        <!-- All css here -->
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="../css/flaticon.css">
-        <link rel="stylesheet" href="../css/animate.css">
-        <link rel="stylesheet" href="../css/aos.css">
-        <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
-        <link rel="stylesheet" href="../css/slick.css">
-        <link rel="stylesheet" href="../css/leaflet.css">
-        <link rel="stylesheet" href="../css/meanmenu.css">
-        <link rel="stylesheet" href="../css/default.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/responsive.css">
-    </head>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <body>
-        <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
+    <style>
+      :root {
+        --primary-color: #3b82f6;
+        --secondary-color: #1e40af;
+        --dark-color: #1f2937;
+        --light-color: #f9fafb;
+        --text-color: #374151;
+        --gray-color: #9ca3af;
+      }
 
-        <!--  ====== preloader=============================================  -->
-        <div id="preloader">
-            <div id="loading">
-                <div id="loading-center">
-                    <div id="loading-center-absolute">
-                        <div class="object" id="object_one"></div>
-                        <div class="object" id="object_two"></div>
-                        <div class="object" id="object_three"></div>
-                    </div>
-                </div>
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-color);
+        background-color: var(--light-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+
+      .main-menu ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu li {
+        margin-left: 30px;
+      }
+
+      .main-menu a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .main-menu a:hover,
+      .main-menu a.active {
+        color: var(--primary-color);
+      }
+
+      .header-btn {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .header-btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /* Blog Section */
+      .blog-section {
+        padding: 120px 0 80px;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title span {
+        color: var(--primary-color);
+        font-weight: 500;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark-color);
+        margin: 0;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .blog-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-img {
+        height: 220px;
+        overflow: hidden;
+      }
+
+      .blog-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .blog-card:hover .blog-img img {
+        transform: scale(1.05);
+      }
+
+      .blog-content {
+        padding: 25px;
+      }
+
+      .blog-content h3 {
+        font-size: 1.4rem;
+        margin: 0 0 15px;
+      }
+
+      .blog-content h3 a {
+        color: var(--dark-color);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .blog-content h3 a:hover {
+        color: var(--primary-color);
+      }
+
+      .blog-content p {
+        color: var(--gray-color);
+        margin-bottom: 20px;
+      }
+
+      .read-more-btn {
+        color: var(--primary-color);
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .read-more-btn i {
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+
+      .read-more-btn:hover i {
+        transform: translateX(3px);
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .social-links {
+        display: flex;
+      }
+
+      .social-links a {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 15px;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-color);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        color: var(--gray-color);
+        font-size: 0.9rem;
+      }
+
+      .copyright a {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--dark-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .main-menu {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .blog-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .social-links {
+          margin-top: 20px;
+          justify-content: center;
+        }
+
+        .social-links a {
+          margin: 0 7.5px;
+        }
+      }
+
+      /* Preloader */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .loader {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="../index.html"
+              ><img src="../images/logo/logo.webp" alt="Didarul Alam Rahat"
+            /></a>
+          </div>
+
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <nav class="main-menu">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#work">Works</a></li>
+              <li><a href="../index.html#service">Services</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <li><a class="active" href="blog.html">Blog</a></li>
+            </ul>
+          </nav>
+
+          <a href="/Files/darahat.pdf" download class="header-btn"
+            >Download CV</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="section-title">
+          <span>Blog</span>
+          <h2>My Recent Articles</h2>
+        </div>
+
+        <div class="blog-grid" id="blogPostsContainer">
+          <!-- Blog posts will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <div class="footer-logo">
+              <a href="../index.html"
+                ><img
+                  src="../images/logo/logo-dark.webp"
+                  alt="Didarul Alam Rahat"
+              /></a>
             </div>
-        </div><!-- /preloader -->
+            <p>Freelance Full-Stack & Flutter Developer</p>
+          </div>
 
+          <div class="social-links">
+            <a href="https://twitter.com/darahat42" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/didarulalamrahat"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://github.com/darahat" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
 
-        <!--  ====== header-area-start
-    ============================================================ -->
-        <header>
-            <div id="header-sticky" class="transparent-header header-area">
-                <div class="header">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-5">
-                                <div class="logo mt-50 mb-50 transition5">
-                                    <a class="header-logo" href="../index.html"><img src="../images/logo/logo.webp" alt="Didarul Alam Rahat - Freelance Full-Stack & Flutter Developer 2025"></a>
-                                </div>
-                            </div><!-- /col -->
-                            <div
-                                class="col-xl-10 col-lg-10 col-md-9 col-sm-8 col-7 pl-0 d-flex justify-content-end align-items-center">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul class="d-block">
-                                            <li>
-                                                <a href="../index.html">Home</a>
-                                            </li>
-                                            <li>
-                                                <a href="../index.html#about">About</a>
-                                            </li>
-                                            <li>
-                                                <a href="../index.html#work">Works</a>
-                                            </li>
-                                            <li>
-                                                <a href="../index.html#service">service</a>
-                                            </li>
-                                            <li>
-                                                <a href="../index.html#contact">Contact</a>
-                                            </li>
-                                            <li>
-                                                <a class="active" href="blog.html">Blog</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div><!-- /main-menu -->
-                                <div class="header-btn pl-45">
-                                    <a href="/Files/darahat.pdf" download
-                                        class="white-text text-uppercase d-inline-block">download cv</a>
-                                </div><!-- /header-btn -->
-                                <!-- <div class="mobile-m-bar d-block d-lg-none ml-30">
-                                    <a class="mobile-menubar theme-color primary-hover" href="javascript:void(0);"><i
-                                            class="far fa-bars"></i></a>
-                                </div> -->
-                            </div><!-- /col -->
-                        </div><!-- /row -->
-                    </div><!-- /container -->
-                </div>
-            </div><!-- /header-bottom -->
-        </header>
-        <!--  header-area-end  -->
+        <div class="copyright">
+          <p>
+            Copyright © 2025 <a href="../index.html">Didarul Alam Rahat</a>. All
+            Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
 
+    <script>
+      // Sample blog posts data
+      const blogPosts = [
+        {
+          title: "The Power of Vue.js",
+          image: "../images/blog/blog-img1.webp",
+          description:
+            "Explore the progressive JavaScript framework that's taking the web by storm with its simplicity and flexibility.",
+          link: "pages/the-power-of-vuejs.html",
+          date: "Oct 18, 2025",
+        },
+        {
+          title: "Getting Started with Laravel",
+          image: "../images/blog/blog-img2.webp",
+          description:
+            "A comprehensive guide to beginning your journey with the elegant PHP framework for web artisans.",
+          link: "pages/getting-started-with-laravel.html",
+          date: "Oct 20, 2025",
+        },
+        {
+          title: "An Introduction to Flutter",
+          image: "../images/blog/port-img5-large.webp",
+          description:
+            "Learn about Google's UI toolkit for building beautiful, natively compiled applications from a single codebase.",
+          link: "pages/an-introduction-to-flutter.html",
+          date: "Oct 22, 2025",
+        },
+      ];
 
-        <!--  ====== header extra info start
-    ============================================================ -->
+      // Function to generate blog post cards
+      function generateBlogPosts() {
+        const container = document.getElementById("blogPostsContainer");
 
-        <!-- side-mobile-menu start -->
-        <div class="side-mobile-menu pt-15 pb-30 pl-30 pr-20 pb-100">
-            <div class="d-fle justify-content-between w-100">
-                <div class="close-icon d-inline-block float-right clear-both mt-20 mb-15">
-                    <!-- <a href="javascript:void(0);"><span class="icon-clear theme-color"><i
-                                class="fa fa-times"></i></span></a> -->
-                </div>
-            </div>
-            <div class="mobile-menu mt-10"></div>
-            <h5 class="text-white text-center mt-35 pb-1 d-inline-block ml-3">Follow me</h5>
-            <ul class="social social-bg text-center d-flex mt-10 ml-3">
-                <li class="mr-2 rotate-hover">
-                    <a class="twitter-bg text-center pr-0 text-white d-block rotate transition-3"
-                        href="https://twitter.com/darahat42"><i class="fab fa-twitter"></i>Twitter</a>
-                </li>
-                <li class="mr-2 rotate-hover">
-                    <a class="linkedin-bg text-center pr-0 text-white d-block rotate transition-3"
-                        href="https://www.linkedin.com/in/didarulalamrahat"><i
-                            class="fab fa-linkedin-in"></i>Linkedin</a>
-                </li>
-            </ul><!-- social -->
-        </div><!-- /side-mobile-menu -->
-        <div class="body-overlay"></div>
-        <!-- header extra info end  -->
-
-        <main class="over-hiddenn">
-
-            <!-- ====== blog-area-start
-        ==================================================== -->
-            <div id="blog" class="blog-area over-hidden pt-160 pb-165">
-                <div class="container">
-                        <div class="row">
-                            <div class="col-xl-12 col-lg-12  col-md-12  col-sm-12 col-12">
-                                <div class="title text-center">
-                                    <span class="meta-text-color text-uppercase d-block mb-6">Blog</span>
-                                    <h2>My Recent Articles</h2>
-                                </div><!-- /title -->
-                            </div><!-- /col -->
-                        </div><!-- /row -->
-
-                        <div class="row blog-posts mt-80">
-                           
-                        </div><!-- /row -->
-                </div><!-- /container -->
-            </div>
-            <!-- blog-area-end -->
-
-        </main>
-
-        <!-- ====== footer-area-start
-    ==================================================== -->
-        <footer class="footer-area over-hidden">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12  col-md-12  col-sm-12 col-12">
-                        <div class="footer-border-top pt-70 pb-50">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6  col-md-6  col-sm-12 col-12">
-                                    <div class="footer-logo mb-20">
-                                        <a href="../index.html"><img src="../images/logo/logo-dark.webp" alt=""></a>
-                                    </div><!-- /footer-logo -->
-                                </div><!-- /col -->
-                                <div class="col-xl-6 col-lg-6  col-md-6  col-sm-12 col-12">
-                                    <div class="footer-social-link text-left text-md-right mb-20">
-                                        <ul class="social-link">
-                                            <li class="d-inline-block">
-                                                <a class="twitter-color text-center pl-15 d-inline-block transition-3"
-                                                    href="https://twitter.com/darahat42"><i
-                                                        class="fab fa-twitter"></i></a>
-                                            </li>
-                                            <li class="d-inline-block">
-                                                <a class="linkedin-color text-center pl-15 d-inline-block transition-3"
-                                                    href="https://www.linkedin.com/in/didarulalamrahat/"><i
-                                                        class="fab fa-linkedin-in"></i></a>
-                                            </li>
-                                        </ul><!-- social-link -->
-                                    </div>
-                                </div><!-- /col -->
-                            </div><!-- /row -->
-                        </div><!-- /footer-border-top -->
-                    </div><!-- /col -->
-                </div><!-- /row -->
-            </div><!-- /container -->
-            <div class="copyright-area over-hidden">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12  col-md-12  col-sm-12 col-12">
-                            <div class="copyright-text text-center">
-                                <p class="mb-0">Copyright © 2025 <a href="../index.html" class="theme-color">Didarul Alam Rahat</a>. All Rights Reserved.</p>
-                            </div>
-                        </div><!-- /col -->
-                    </div><!-- /row -->
-                </div><!-- /container -->
-            </div><!-- /copyright-area -->
-        </footer>
-        <!-- footer-area-end -->
-
-
-        <!-- All js here -->
-        <script src="../js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/plugins.js"></script>
-        <script src="../js/jquery.fancybox.min.js"></script>
-        <script src="../js/jquery.meanmenu.min.js"></script>
-        <script src="../js/isotope.pkgd.min.js"></script>
-        <script src="../js/image-loaded.min.js"></script>
-        <script src="../js/aos.js"></script>
-        <script src="../js/jquery-appear.js"></script>
-        <script src="../js/jquery.knob.js"></script>
-        <script src="../js/waypoint.js"></script>
-        <script src="../js/counterup-min.js"></script>
-        <script src="../js/slick.min.js"></script>
-        <script src="../js/leaflet.js"></script>
-        <script src="../js/one-page-nav-min.js"></script>
-        <script src="../js/main.js"></script>
-        <script>
-            // Sample blog posts data (you can replace this with your actual data)
-            const blogPosts = [
-                {
-                    title: "The Power of Vue.js",
-                    image: "../images/blog/blog-img1.webp",
-                    description: "This is a short description of the first blog post.",
-                    link: "pages/the-power-of-vuejs.html"
-                },
-                {
-                    title: "Getting Started with Laravel",
-                    image: "../images/blog/blog-img2.webp",
-                    description: "This is a short description of the second blog post.",
-                    link: "pages/getting-started-with-laravel.html"
-                },
-                {
-                    title: "An Introduction to Flutter",
-                    image: "../images/blog/port-img5-large.webp",
-                    description: "This is a short description of the third blog post.",
-                    link: "pages/an-introduction-to-flutter.html"
-                }
-            ];
-
-            // Function to generate blog post cards
-            function generateBlogPosts() {
-                const blogPostsContainer = document.querySelector('.blog-posts');
-                let allPostsHTML = '';
-
-                blogPosts.forEach(post => {
-                    const postHTML = `
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="single-blog-post mb-30">
-                                <div class="blog-img">
-                                    <a href="${post.link}"><img src="${post.image}" alt="${post.title}"></a>
-                                </div>
-                                <div class="blog-content">
-                                    <h3><a href="${post.link}">${post.title}</a></h3>
-                                    <p>${post.description}</p>
-                                    <a href="${post.link}" class="read-more-btn">Read More <i class="fa fa-plus"></i></a>
-                                </div>
+        blogPosts.forEach((post) => {
+          const postHTML = `
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <a href="${post.link}"><img src="${post.image}" alt="${post.title}"></a>
+                        </div>
+                        <div class="blog-content">
+                            <h3><a href="${post.link}">${post.title}</a></h3>
+                            <p>${post.description}</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-400">${post.date}</span>
+                                <a href="${post.link}" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
-                    `;
-                    allPostsHTML += postHTML;
-                });
+                    </div>
+                `;
+          container.innerHTML += postHTML;
+        });
+      }
 
-                blogPostsContainer.innerHTML = allPostsHTML;
-            }
+      // Hide preloader when page loads
+      window.addEventListener("load", function () {
+        document.getElementById("preloader").style.display = "none";
+        generateBlogPosts();
+      });
 
-            // Generate blog posts on page load
-            generateBlogPosts();
-        </script>
-    </body>
-
+      // Mobile menu toggle
+      document
+        .querySelector(".mobile-menu-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".main-menu").classList.toggle("show");
+        });
+    </script>
+  </body>
 </html>
