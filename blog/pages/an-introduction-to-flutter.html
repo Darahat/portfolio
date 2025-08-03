@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>An Introduction to Flutter - Didarul Alam Rahat</title>
+    <meta
+      name="description"
+      content="An introduction to Flutter, Google's UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="../../images/logo/favicon.webp"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+      }
+
+      .prose {
+        max-width: 65ch;
+      }
+
+      .prose h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .prose p {
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+        color: #374151;
+      }
+
+      .prose img {
+        border-radius: 0.5rem;
+        margin: 2rem 0;
+      }
+
+      .prose a {
+        color: #3b82f6;
+        text-decoration: underline;
+      }
+
+      .prose a:hover {
+        color: #2563eb;
+      }
+
+      .prose ul,
+      .prose ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+      }
+
+      .prose li {
+        margin-bottom: 0.5rem;
+      }
+
+      .prose blockquote {
+        border-left: 4px solid #e5e7eb;
+        padding-left: 1rem;
+        color: #4b5563;
+        font-style: italic;
+        margin: 1.5rem 0;
+      }
+
+      .prose pre {
+        background-color: #f3f4f6;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .prose code {
+        background-color: #f3f4f6;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <a href="../../index.html" class="text-xl font-bold text-gray-900"
+              >Didarul Alam Rahat</a
+            >
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a href="../../index.html" class="text-gray-600 hover:text-blue-600"
+              >Home</a
+            >
+            <a
+              href="../../index.html#about"
+              class="text-gray-600 hover:text-blue-600"
+              >About</a
+            >
+            <a
+              href="../../index.html#work"
+              class="text-gray-600 hover:text-blue-600"
+              >Works</a
+            >
+            <a
+              href="../../index.html#service"
+              class="text-gray-600 hover:text-blue-600"
+              >Services</a
+            >
+            <a
+              href="../../index.html#contact"
+              class="text-gray-600 hover:text-blue-600"
+              >Contact</a
+            >
+            <a href="../blog.html" class="text-blue-600 font-medium">Blog</a>
+          </nav>
+          <div class="md:hidden">
+            <button class="text-gray-600 focus:outline-none">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-8">
+          <span class="text-blue-600 font-medium">Development</span>
+          <h1 class="text-4xl md:text-5xl font-bold mt-2 mb-4">
+            An Introduction to Flutter
+          </h1>
+          <div class="flex items-center mt-6">
+            <img
+              src="../../images/author.webp"
+              alt="Didarul Alam Rahat"
+              class="w-12 h-12 rounded-full"
+            />
+            <div class="ml-4">
+              <p class="font-medium">Didarul Alam Rahat</p>
+              <p class="text-gray-500 text-sm">Oct 22, 2025 · 5 min read</p>
+            </div>
+          </div>
+        </div>
+
+        <article class="prose mx-auto">
+          <img
+            src="../../images/blog/port-img5-large.webp"
+            alt="An Introduction to Flutter"
+            class="w-full rounded-lg"
+          />
+
+          <p>
+            Flutter is Google's UI toolkit for building beautiful, natively
+            compiled applications for mobile, web, and desktop from a single
+            codebase. Flutter works with existing code, is used by developers
+            and organizations around the world, and is free and open source. In
+            this blog post, we will explore the fundamentals of Flutter and what
+            makes it a powerful choice for cross-platform development.
+          </p>
+
+          <h2>What is Flutter?</h2>
+
+          <p>
+            Flutter is an open-source framework created by Google for building
+            beautiful, natively compiled, multi-platform applications from a
+            single codebase. It was first released in 2017 and has since gained
+            significant popularity among developers.
+          </p>
+
+          <p>The key features that make Flutter stand out include:</p>
+
+          <ul>
+            <li>
+              <strong>Single codebase:</strong> Write once, deploy to multiple
+              platforms (iOS, Android, web, desktop)
+            </li>
+            <li>
+              <strong>Fast development:</strong> Hot reload allows you to see
+              changes instantly without restarting your app
+            </li>
+            <li>
+              <strong>Expressive UI:</strong> Beautiful, customizable widgets
+              that follow platform conventions
+            </li>
+            <li>
+              <strong>Native performance:</strong> Compiles to native ARM code
+              for fast execution
+            </li>
+          </ul>
+
+          <h2>Why Choose Flutter?</h2>
+
+          <p>
+            There are several reasons why developers and businesses are choosing
+            Flutter for their app development needs:
+          </p>
+
+          <h3>1. Cross-platform Development</h3>
+
+          <p>
+            With Flutter, you can write your code once and deploy it to multiple
+            platforms. This significantly reduces development time and costs
+            compared to maintaining separate codebases for iOS and Android.
+          </p>
+
+          <h3>2. Fast Development Cycle</h3>
+
+          <p>
+            Flutter's hot reload feature allows developers to see changes in
+            their code almost instantly without restarting the app. This leads
+            to a much faster development cycle and quicker iterations.
+          </p>
+
+          <h3>3. Beautiful, Customizable UI</h3>
+
+          <p>
+            Flutter comes with a rich set of customizable widgets that follow
+            Material Design (for Android) and Cupertino (for iOS) styles. You
+            can also create your own custom widgets to match your brand's design
+            language.
+          </p>
+
+          <h2>Getting Started with Flutter</h2>
+
+          <p>To start developing with Flutter, you'll need to:</p>
+
+          <ol>
+            <li>Install the Flutter SDK</li>
+            <li>Set up your preferred IDE (Android Studio, VS Code, etc.)</li>
+            <li>Configure your development environment</li>
+            <li>Create your first Flutter project</li>
+          </ol>
+
+          <p>
+            Here's a simple example of a Flutter app that displays "Hello,
+            World!":
+          </p>
+
+          <pre><code class="language-dart">import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to Flutter'),
+        ),
+        body: Center(
+          child: Text('Hello, World!'),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+          <h2>The Flutter Architecture</h2>
+
+          <p>Flutter's architecture is based on several key layers:</p>
+
+          <ul>
+            <li>
+              <strong>Framework:</strong> Written in Dart, provides the widgets
+              and tools developers use
+            </li>
+            <li>
+              <strong>Engine:</strong> Written in C++, provides low-level
+              rendering support
+            </li>
+            <li>
+              <strong>Embedder:</strong> Platform-specific code that runs the
+              Flutter app
+            </li>
+          </ul>
+
+          <h2>Conclusion</h2>
+
+          <p>
+            Flutter is a powerful framework that's changing how developers build
+            cross-platform applications. With its fast development cycle,
+            beautiful UI capabilities, and native performance, it's no wonder
+            Flutter is becoming increasingly popular among developers and
+            businesses alike.
+          </p>
+
+          <p>
+            Whether you're building a simple mobile app or a complex
+            multi-platform application, Flutter provides the tools and
+            flexibility you need to create high-quality software efficiently.
+          </p>
+        </article>
+
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <button
+                class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+              >
+                <i class="fas fa-heart"></i>
+              </button>
+              <span class="text-gray-600">42 likes</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <button
+                class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+              >
+                <i class="fas fa-share"></i>
+              </button>
+              <button
+                class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+              >
+                <i class="fas fa-bookmark"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-4">
+              More from Didarul Alam Rahat
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div
+                class="border rounded-lg p-4 hover:shadow-md transition-shadow"
+              >
+                <a href="the-power-of-vuejs.html" class="block">
+                  <img
+                    src="../../images/blog/blog-img1.webp"
+                    alt="The Power of Vue.js"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <h4 class="text-lg font-semibold mb-2">
+                    The Power of Vue.js
+                  </h4>
+                  <p class="text-gray-600 mb-2">
+                    Exploring the progressive JavaScript framework that's taking
+                    the web by storm.
+                  </p>
+                  <span class="text-sm text-gray-500">Oct 18, 2025</span>
+                </a>
+              </div>
+              <div
+                class="border rounded-lg p-4 hover:shadow-md transition-shadow"
+              >
+                <a href="getting-started-with-laravel.html" class="block">
+                  <img
+                    src="../../images/blog/blog-img2.webp"
+                    alt="Getting Started with Laravel"
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <h4 class="text-lg font-semibold mb-2">
+                    Getting Started with Laravel
+                  </h4>
+                  <p class="text-gray-600 mb-2">
+                    A beginner's guide to the PHP framework for web artisans.
+                  </p>
+                  <span class="text-sm text-gray-500">Oct 20, 2025</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="../../index.html" class="text-xl font-bold text-gray-900"
+              >Didarul Alam Rahat</a
+            >
+            <p class="text-gray-600 mt-2">
+              Freelance Full-Stack & Flutter Developer
+            </p>
+          </div>
+          <div class="flex space-x-6">
+            <a
+              href="https://twitter.com/darahat42"
+              class="text-gray-600 hover:text-blue-600"
+            >
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/didarulalamrahat"
+              class="text-gray-600 hover:text-blue-600"
+            >
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a
+              href="https://github.com/darahat"
+              class="text-gray-600 hover:text-blue-600"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500 text-sm"
+        >
+          <p>© 2025 Didarul Alam Rahat. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple mobile menu toggle
+      document
+        .querySelector(".md\\:hidden button")
+        .addEventListener("click", function () {
+          // You would implement mobile menu toggle functionality here
+          console.log("Mobile menu toggled");
+        });
+    </script>
+  </body>
+</html>
